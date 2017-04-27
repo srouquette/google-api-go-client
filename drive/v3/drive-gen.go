@@ -636,7 +636,7 @@ type File struct {
 	// AppProperties: A collection of arbitrary key-value pairs which are
 	// private to the requesting app.
 	// Entries with null values are cleared in update and copy requests.
-	AppProperties map[string]string `json:"appProperties,omitempty"`
+	AppProperties map[string]interface{} `json:"appProperties,omitempty"`
 
 	// Capabilities: Capabilities the current user has on the file. Each
 	// capability corresponds to a fine-grained action that a user may take.
