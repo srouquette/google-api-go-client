@@ -884,6 +884,28 @@ func (s *File) MarshalJSON() ([]byte, error) {
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
+func (s *File) GetAppProperties() (properties map[string]string) {
+	properties = make(map[string]string)
+	if s == nil {
+		return
+	}
+	for key, value := range s.AppProperties {
+		if value != nil {
+			properties[key] = value.(string)
+		}
+	}
+	return
+}
+
+func (s *File) GetAppProperty(key string) string {
+	if s != nil {
+		if value, ok := s.AppProperties[key]; ok {
+			return value.(string)
+		}
+	}
+	return ""
+}
+
 // FileCapabilities: Capabilities the current user has on the file. Each
 // capability corresponds to a fine-grained action that a user may take.
 type FileCapabilities struct {
